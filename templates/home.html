@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>The Crossroads</h1>
+<p>
+  You wake up in a foggy clearing, an ache in your head. “How did I get here?” you ask out loud to no one in particular.
+  As the sun begins to melt the fog, you see you’re standing at a well-worn crossroads. Along with the aching head you don’t remember where or really even who you are.
+  There is a rustling in the trees and whatever it is sounds large! I have to get out of here! What way will you go?
+</p>
+
+<p><strong>Scene ID:</strong> MENU • <strong>Where/When:</strong> Foggy clearing, morning</p>
+
+<div class="choices">
+  <a class="btn" href="{{ url_for('north_path') }}">Go North (Chris’s story)</a>
+  <a class="btn" href="{{ url_for('east_path') }}">Go East (Travis’s story)</a>
+  <a class="btn" href="{{ url_for('south_path') }}">Go South (Charlie’s story)</a>
+  <a class="btn" href="{{ url_for('west_path') }}">Go West (Trey’s story)</a>
+</div>
+
+<p><em>Exit:</em> The crossroads fades behind you as your chosen path unfolds.</p>
+{% endblock %}

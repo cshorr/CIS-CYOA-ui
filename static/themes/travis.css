@@ -1,0 +1,52 @@
+/* full-viewport canvas */
+html, body { height: 100%; margin: 0; }
+
+/* gradient background + center layout */
+.screen {
+  min-height: 100%;
+  background: radial-gradient(1200px 800px at 70% 10%, #2f3352, #151722 60%, #0d0f18 100%);
+  display: grid;
+  place-items: center;
+}
+
+/* glassy center panel */
+.panel {
+  width: min(800px, 90vw);
+  padding: 24px;
+  background: rgba(255,255,255,0.03);
+  /* background-image: none;   // was blank; leaving it off */
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  color: #eef1f7;
+  line-height: 1.5;
+}
+
+/* buttons */
+.choices { margin-top: 16px; display: flex; gap: 12px; }
+
+/* if you use <button> elements */
+.choices button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 3px solid rgba(255,255,255,0.12); /* fixed: '3' and 'px' were split */
+  font-weight: normal;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: lightyellow;
+  color: orangered;
+  cursor: pointer;
+}
+.choices button:hover { filter: brightness(1.1); }
+
+/* if you use <a class="btn"> links */
+a.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: #262a36;
+  color: #eef1f7;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.btn:hover { filter: brightness(1.1); }

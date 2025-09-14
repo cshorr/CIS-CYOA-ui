@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ msg }}</p>
+
+<div class="choices" style="margin-top:12px">
+    <a class="btn" href="{{ url_for('chris_start') }}">Restart Chris (N-001)</a>
+    <a class="btn" href="{{ url_for('home') }}">Back to Crossroads</a>
+</div>
+{% endblock %}

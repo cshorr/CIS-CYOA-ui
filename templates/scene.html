@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}{{ title or scene.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ scene.title }}</h1>
+
+<p><strong>ID:</strong> {{ scene.scene_id }} • <strong>Where/When:</strong> {{ scene.where_when }}</p>
+
+<p>{{ scene.text }}</p>
+
+<div class="choices">
+    {% for c in scene.choices %}
+    {% set nextid = (c.next_id|string).strip() %}
+    {% if nextid == 'END' %}
+    <a class="btn" href="{{ url_for('the_end') }}">
+        {{ c.label or 'Finish' }}
+    </a>
+    {% elif nextid == 'DIE' %}
+    <a class="btn" href="{{ url_for('death', msg=(c.death_text or 'Your story ends here.')) }}">
+        {{ c.label or 'You Died' }}
+    </a>
+    {% else %}
+    <a class="btn" href="{{ url_for('scene_chris', scene_id=nextid) }}">
+        {{ c.label }} ({{ nextid }})
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% if scene.exit_line %}
+<p><em>Exit:</em> {{ scene.exit_line }}</p>
+{% endif %}
+
+<div class="choices" style="margin-top:12px">
+    <a class="btn" href="{{ url_for('home') }}">Back to Crossroads</a>
+</div>
+{% endblock %}

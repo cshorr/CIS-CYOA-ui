@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}{{ title or "CIS CYOA" }}{% endblock %}</title>
+
+  <!-- Load the right theme dynamically based on the route -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='themes/' + theme + '.css') }}">
+</head>
+<body>
+<div class="screen">
+  <div class="panel">
+    <main class="wrap">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+</body>
+</html>
+
+
